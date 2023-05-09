@@ -228,8 +228,39 @@
 // document.write(c + " to this website");
 
 // task 4
-let a = +prompt("enter the number");
-for (let a = 1; a <= 10; a++) {
-    document.write
+// let a = +prompt("enter the number");
+// if (a == " ") {
+//     for (let i = 1; i <= 10; i++){
+//         document.write(5 * i + "<br>");
+//     }
     
-}
+// }else {
+//     for (let i = 1; i <= 10; i++)
+//     {
+// document.write(a*i + "<br>");
+//     }
+// }
+
+// task 5
+let sub1 = prompt("eter the first subject name ");
+let sub2 = prompt("eter the second subject name ");
+let sub3 = prompt("eter the third subject name ");
+let enter_sub1= sub1;
+let enter_sub2= sub2;
+let enter_sub3= sub3;
+let = total = 100;
+let = all_total = 100*3;
+let o_marks1= +prompt("Enter the obtain marks 1");
+let o_marks2= +prompt("Enter the obtain marks 2");
+let o_marks3= +prompt("Enter the obtai marks 3");
+let enterObtainMarks1= o_marks1;
+let enterObtainMarks2= o_marks2;
+let enterObtainMarks3= o_marks3;
+let total_obtainMarks= o_marks1+o_marks2+o_marks3;
+let percentage1 = (o_marks1/total)*100;
+let percentage2 = (o_marks2/total)*100;
+let percentage3 = (o_marks3/total)*100;
+document.write("Subject "+ "<br>" + sub1+"<br>"+sub2+"<br>"+sub3+"<br>");
+document.write("Total "+ "<br>" + total+"<br>"+total+"<br>"+total+"<br>");
+document.write("Obtain Marks" + "<br>" + o_marks1 + "<br>" + o_marks2 + "<br>"+ o_marks3 +"<br>");
+document.write("Percentage "+ "<br>" + percentage1+ "% "+"<br>"+percentage2+ "%"+"<br>"+percentage3+ "%" + "<br>");
