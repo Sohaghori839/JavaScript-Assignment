@@ -91,7 +91,7 @@ console.table(multiarr)*/
 
 // task 10
 for (let i = 5; i<=100; i++) {
-   // document.write(i)
+   
    if (i % 5 === 0) {
       document.write(i + "<br>")
    }
