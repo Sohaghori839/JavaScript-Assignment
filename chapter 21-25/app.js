@@ -205,7 +205,7 @@ else if(flag === true){
     prompt("first index is a number\nenter a new password")
  } */
 
-//  gpt
+// Task 13 gpt
 
  /* const specialSymbols = ['@', '.', ',', '!'];
 let username = prompt('Enter your username:');
@@ -230,7 +230,8 @@ function containsSpecialSymbol(username) {
 }
  */
 
-var userName=prompt("Enter your Your Name: ");
+// Task 13 other way
+/* var userName=prompt("Enter your Your Name: ");
 checkValidName(userName);
 function checkValidName(un)
 {
@@ -261,4 +262,14 @@ function checkValidName(un)
     }
     alert(message);
 }
- 
+  */
+
+// Task 18
+var text = "The quick brown fox jumps over the lazy dog";
+count = 0;
+for (let i = 0; i < text.length; i++) {
+   if (text.charAt(i)==='quick') {
+    count++
+   }
+}
+document.write(count)
