@@ -264,12 +264,18 @@ function checkValidName(un)
 }
   */
 
+//Task 17
+/* let str =  prompt("enter your name");
+let result =  str.charAt(str.length-1);
+document.write(result); */
+
 // Task 18
-var text = "The quick brown fox jumps over the lazy dog";
+
+/* var text = "The quick brown fox jumps over the lazy dog";
 count = 0;
 for (let i = 0; i < text.length; i++) {
    if (text.charAt(i)==='quick') {
     count++
    }
 }
-document.write(count)
+document.write(count) */
