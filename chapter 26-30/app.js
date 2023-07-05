@@ -53,4 +53,20 @@ else{
 document.write("random num btw 1 and 100: "+num);
  */
 
-// Task 7
+// Task 8
+
+var secretNumber = Math.floor(Math.random() * 10) + 1;
+
+
+var userInput = prompt("Guess the secret number (between 1 and 10):");
+
+
+var userGuess = parseInt(userInput);
+
+
+if (userGuess === secretNumber) {
+  document.write("Congratulations! You guessed the secret number.");
+} else {
+  document.write("Sorry, your guess is incorrect. The secret number was: " + secretNumber);
+}
+
