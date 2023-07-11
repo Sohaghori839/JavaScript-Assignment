@@ -28,7 +28,7 @@ function mobile1() {
 } */
 
 // Task 5 
-var counterValue = 0;
+/* var counterValue = 0;
 function increaseCounter() {
     counterValue++;
     displayCounter();
@@ -44,4 +44,4 @@ function decreaseCounter() {
 function displayCounter() {
     var counterElement = document.getElementById("counter");
     counterElement.textContent = counterValue; 
-}
+} */

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 49-52 </title>
+</head>
+<body>
+    <!-- Chat Gpt -->
+    <style>
+        table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+    
+        th, td {
+          padding: 8px;
+          text-align: left;
+          border-bottom: 1px solid #ddd;
+        }
+    
+        .delete-button, .edit-button {
+          background-color: red;
+          color: white;
+          border: none;
+          padding: 5px 10px;
+          cursor: pointer;
+        }
+    
+        .hidden-form {
+          display: none;
+        }
+      </style>
+    </head>
+    <body>
+      <h2>Student Details</h2>
+      <form id="student-form" onsubmit="addStudent(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required><br>
+    
+        <label for="age">Age:</label>
+        <input type="number" id="age" required><br>
+    
+        <label for="grade">Grade:</label>
+        <input type="text" id="grade" required><br>
+    
+        <button type="submit">Add Student</button>
+      </form>
+    
+      <table id="student-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Grade</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="student-table-body">
+          <!-- Student details rows will be dynamically added here -->
+        </tbody>
+      </table>
+    
+      <form id="edit-form" class="hidden-form">
+        <h2>Edit Student</h2>
+        <input type="hidden" id="edit-index">
+        <label for="edit-name">Name:</label>
+        <input type="text" id="edit-name" required><br>
+    
+        <label for="edit-age">Age:</label>
+        <input type="number" id="edit-age" required><br>
+    
+        <label for="edit-grade">Grade:</label>
+        <input type="text" id="edit-grade" required><br>
+    
+        <button type="submit">Update Student</button>
+        <button type="button" onclick="cancelEdit()">Cancel</button>
+      </form>
+    
+      <script>
+        var studentData = []; // Array to store student details
+    
+        function addStudent(event) {
+          event.preventDefault(); // Prevent form submission
+    
+          // Get form inputs
+          var nameInput = document.getElementById("name");
+          var ageInput = document.getElementById("age");
+          var gradeInput = document.getElementById("grade");
+    
+          // Get submitted form data
+          var name = nameInput.value;
+          var age = ageInput.value;
+          var grade = gradeInput.value;
+    
+          // Create student object
+          var student = {
+            name: name,
+            age: age,
+            grade: grade
+          };
+    
+          // Add student to the data array
+          studentData.push(student);
+    
+          // Update table
+          updateTable();
+    
+          // Reset form inputs
+          document.getElementById("student-form").reset();
+        }
+    
+        function updateTable() {
+          var tableBody = document.getElementById("student-table-body");
+          tableBody.innerHTML = ""; // Clear existing table rows
+    
+          // Add new table rows based on student data
+          for (var i = 0; i < studentData.length; i++) {
+            var student = studentData[i];
+            var row = document.createElement("tr");
+    
+            var nameCell = document.createElement("td");
+            nameCell.textContent = student.name;
+            row.appendChild(nameCell);
+    
+            var ageCell = document.createElement("td");
+            ageCell.textContent = student.age;
+            row.appendChild(ageCell);
+    
+            var gradeCell = document.createElement("td");
+            gradeCell.textContent = student.grade;
+            row.appendChild(gradeCell);
+    
+            var actionCell = document.createElement("td");
+            var deleteButton = document.createElement("button");
+            deleteButton.className = "delete-button";
+            deleteButton.textContent = "Delete";
+            deleteButton.setAttribute("data-index", i);
+            deleteButton.addEventListener("click", deleteStudent);
+            actionCell.appendChild(deleteButton);
+    
+            var editButton = document.createElement("button");
+            editButton.className = "edit-button";
+            editButton.textContent = "Edit";
+            editButton.setAttribute("data-index", i);
+            editButton.addEventListener("click", showEditForm);
+            actionCell.appendChild(editButton);
+    
+            row.appendChild(actionCell);
+    
+            tableBody.appendChild(row);
+          }
+        }
+    
+        function deleteStudent(event) {
+          var index = parseInt(event.target.getAttribute("data-index"));
+          studentData.splice(index, 1); // Remove student from the data array
+          updateTable();
+        }
+    
+        function showEditForm(event) {
+          var index = parseInt(event.target.getAttribute("data-index"));
+          var student = studentData[index];
+    
+          var editForm = document.getElementById("edit-form");
+          var editIndexInput = document.getElementById("edit-index");
+          var editNameInput = document.getElementById("edit-name");
+          var editAgeInput = document.getElementById("edit-age");
+          var editGradeInput = document.getElementById("edit-grade");
+    
+          editIndexInput.value = index;
+          editNameInput.value = student.name;
+          editAgeInput.value = student.age;
+          editGradeInput.value = student.grade;
+    
+          editForm.classList.remove("hidden-form");
+        }
+    
+        function cancelEdit() {
+          var editForm = document.getElementById("edit-form");
+          editForm.classList.add("hidden-form");
+        }
+    
+        document.getElementById("edit-form").addEventListener("submit", function(event) {
+          event.preventDefault(); // Prevent form submission
+    
+          var index = parseInt(document.getElementById("edit-index").value);
+          var student = studentData[index];
+    
+          student.name = document.getElementById("edit-name").value;
+          student.age = document.getElementById("edit-age").value;
+          student.grade = document.getElementById("edit-grade").value;
+    
+          updateTable();
+          cancelEdit();
+        });
+      </script>
+    <script src="./app.js"></script>
+</body>
+</html>
