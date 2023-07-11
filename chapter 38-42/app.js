@@ -213,5 +213,6 @@ overtimePay();
    var remaining = parseInt(((amount % 100) % 50) % 10);   alert("You will have " +hundreds+ " hundreds notes " +fifty+ " fifty notes " +ten+ " ten notes \n Amount still remaining Rs. :  " +remaining);
    return 0;
  }
+ withDraw();
  */
 
